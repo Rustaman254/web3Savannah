@@ -75,7 +75,7 @@ export default function ScrollSavannahPage() {
               <div className="bg-[#111111] p-6 rounded-lg border border-gray-800 mb-8">
                 <div className="relative h-64 mb-6">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
+                    src="/1_52j_-YffoPNBR_-ji_8rlQ (1).jpg"
                     alt="Zero Knowledge Proof visualization"
                     fill
                     className="object-cover rounded-lg"
