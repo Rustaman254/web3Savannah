@@ -263,7 +263,7 @@ export default function ScrollSavannahPage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="relative h-48 md:h-64">
                 <Image
-                  src="/placeholder.svg?height=400&width=400"
+                  src="/images.png"
                   alt="Scroll Kenya Launch Event"
                   fill
                   className="object-cover rounded-lg"
