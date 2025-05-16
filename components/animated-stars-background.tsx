@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import { useTheme } from "next-themes"
 
 interface Star {
   x: number
@@ -19,6 +20,7 @@ export function AnimatedStarsBackground({ className = "" }: AnimatedStarsBackgro
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const starsRef = useRef<Star[]>([])
   const animationFrameRef = useRef<number>(0)
+  const { theme } = useTheme()
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -58,7 +60,7 @@ export function AnimatedStarsBackground({ className = "" }: AnimatedStarsBackgro
       if (!ctx || !canvas) return
 
       // Clear with a very subtle background color instead of fully transparent
-      ctx.fillStyle = "rgba(10, 10, 10, 0.2)"
+      ctx.fillStyle = theme === "dark" ? "rgba(10, 10, 10, 0.2)" : "rgba(240, 240, 240, 0.2)"
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       starsRef.current.forEach((star) => {
@@ -97,7 +99,7 @@ export function AnimatedStarsBackground({ className = "" }: AnimatedStarsBackgro
       window.removeEventListener("resize", resizeCanvas)
       cancelAnimationFrame(animationFrameRef.current)
     }
-  }, [])
+  }, [theme])
 
   return <canvas ref={canvasRef} className={`absolute inset-0 -z-10 ${className}`} />
 }

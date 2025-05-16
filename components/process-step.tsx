@@ -15,8 +15,8 @@ export function ProcessStep({ number, title, description, className }: ProcessSt
           {number}
         </div>
         <div>
-          <h3 className="text-xl font-medium mb-2">{title}</h3>
-          <p className="text-gray-400">{description}</p>
+          <h3 className="text-xl font-medium mb-2 text-gray-900 dark:text-white">{title}</h3>
+          <p className="text-gray-600 dark:text-gray-400">{description}</p>
         </div>
       </div>
     </div>

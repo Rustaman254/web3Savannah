@@ -1,11 +1,13 @@
+import Image from "next/image"
 import { Navbar } from "@/components/navbar"
 import { ServiceCTA } from "@/components/service-cta"
 import { ServiceFooter } from "@/components/service-footer"
 import { CreditCard } from "@/components/credit-card"
+import { CardThemeSelector } from "@/components/card-theme-selector"
 import { PricingCard } from "@/components/pricing-card"
 import { ProcessStep } from "@/components/process-step"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, CreditCardIcon, Database, Lock, Shield } from "lucide-react"
+import { CheckCircle, CreditCardIcon, Database, Lock, Shield, Smartphone, BarChart } from "lucide-react"
 
 export default function BaasCardSolutionsPage() {
   return (
@@ -52,141 +54,193 @@ export default function BaasCardSolutionsPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-[#111111] p-8 rounded-lg border border-gray-800">
+            <div className="bg-white dark:bg-[#111111] p-8 rounded-lg border border-gray-200 dark:border-gray-800">
               <div className="mb-6 text-[#00d2ff]">
                 <CreditCardIcon size={40} />
               </div>
-              <h3 className="text-xl font-medium mb-4">Virtual & Physical Cards</h3>
-              <p className="text-gray-400 text-sm">
+              <h3 className="text-xl font-medium mb-4 text-gray-900 dark:text-white">Virtual & Physical Cards</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
                 Issue white-labeled virtual and physical cards with your branding.
               </p>
             </div>
 
-            <div className="bg-[#111111] p-8 rounded-lg border border-gray-800">
+            <div className="bg-white dark:bg-[#111111] p-8 rounded-lg border border-gray-200 dark:border-gray-800">
               <div className="mb-6 text-purple-500">
                 <Database size={40} />
               </div>
-              <h3 className="text-xl font-medium mb-4">Multi-Currency Accounts</h3>
-              <p className="text-gray-400 text-sm">Support for local and international currencies with real-time FX.</p>
+              <h3 className="text-xl font-medium mb-4 text-gray-900 dark:text-white">Multi-Currency Accounts</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                Support for local and international currencies with real-time FX.
+              </p>
             </div>
 
-            <div className="bg-[#111111] p-8 rounded-lg border border-gray-800">
+            <div className="bg-white dark:bg-[#111111] p-8 rounded-lg border border-gray-200 dark:border-gray-800">
               <div className="mb-6 text-[#00d2ff]">
                 <Shield size={40} />
               </div>
-              <h3 className="text-xl font-medium mb-4">Compliance & KYC</h3>
-              <p className="text-gray-400 text-sm">Built-in compliance tools and KYC verification for all users.</p>
+              <h3 className="text-xl font-medium mb-4 text-gray-900 dark:text-white">Compliance & KYC</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                Built-in compliance tools and KYC verification for all users.
+              </p>
             </div>
 
-            <div className="bg-[#111111] p-8 rounded-lg border border-gray-800">
+            <div className="bg-white dark:bg-[#111111] p-8 rounded-lg border border-gray-200 dark:border-gray-800">
               <div className="mb-6 text-purple-500">
                 <Lock size={40} />
               </div>
-              <h3 className="text-xl font-medium mb-4">Instant Settlements</h3>
-              <p className="text-gray-400 text-sm">Fast, secure settlement for all transactions on the platform.</p>
+              <h3 className="text-xl font-medium mb-4 text-gray-900 dark:text-white">Instant Settlements</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                Fast, secure settlement for all transactions on the platform.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Card Showcase */}
+      {/* Card Customization */}
       <section className="py-16">
         <div className="container mx-auto">
           <div className="flex items-center gap-2 mb-4">
             <div className="h-1 w-6 bg-gray-700 rounded-full"></div>
-            <span className="text-xs text-gray-400 uppercase">Virtual & Physical Cards</span>
+            <span className="text-xs text-gray-400 uppercase">Card Customization</span>
           </div>
-          <h2 className="text-3xl font-bold mb-6">Custom-Branded Payment Cards</h2>
+          <h2 className="text-3xl font-bold mb-6">Design Cards That Reflect Your Brand</h2>
           <p className="text-gray-400 mb-8 max-w-3xl">
-            Issue virtual and physical payment cards with your brand's design. Our cards support global payments, ATM
-            withdrawals, and can be integrated with major mobile wallets.
+            Choose from multiple themes or create a completely custom design. Our cards are fully customizable to match
+            your brand identity and appeal to your users.
           </p>
 
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-[#00d2ff] mt-0.5" />
-                  <div>
-                    <h4 className="font-medium">Instant Issuance</h4>
-                    <p className="text-gray-400 text-sm">
-                      Create virtual cards instantly for immediate use by your customers
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-[#00d2ff] mt-0.5" />
-                  <div>
-                    <h4 className="font-medium">Custom Designs</h4>
-                    <p className="text-gray-400 text-sm">
-                      Fully customizable card designs that reflect your brand identity
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-[#00d2ff] mt-0.5" />
-                  <div>
-                    <h4 className="font-medium">Spending Controls</h4>
-                    <p className="text-gray-400 text-sm">
-                      Set transaction limits, merchant category restrictions, and geographic controls
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-[#00d2ff] mt-0.5" />
-                  <div>
-                    <h4 className="font-medium">Real-time Notifications</h4>
-                    <p className="text-gray-400 text-sm">
-                      Keep users informed with instant transaction alerts and balance updates
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-[#00d2ff] mt-0.5" />
-                  <div>
-                    <h4 className="font-medium">Wallet Integration</h4>
-                    <p className="text-gray-400 text-sm">
-                      Seamless integration with Apple Pay, Google Pay, and other digital wallets
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </div>
+            <CardThemeSelector />
 
-            <div className="bg-[#111111] p-8 rounded-xl border border-gray-800">
-              <h3 className="text-xl font-medium mb-6">Card Management Dashboard</h3>
-              <p className="text-gray-400 mb-6">
-                Our intuitive dashboard gives you complete control over your card program. Monitor transactions, manage
-                user accounts, and analyze spending patterns in real-time.
-              </p>
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h4 className="text-[#00d2ff] font-medium mb-2">User Management</h4>
-                  <p className="text-gray-400 text-sm">Easily onboard and manage cardholders</p>
+            <div className="space-y-8">
+              <div className="bg-white dark:bg-[#111111] p-6 rounded-xl border border-gray-200 dark:border-gray-800">
+                <h3 className="text-xl font-medium mb-4 text-gray-900 dark:text-white">Brand Integration</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-6">
+                  Your brand is unique, and your cards should be too. Our customization options allow you to:
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[#00d2ff] mt-0.5" />
+                    <div>
+                      <p className="text-gray-700 dark:text-gray-300 text-sm">
+                        Upload your logo and brand assets for seamless integration
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[#00d2ff] mt-0.5" />
+                    <div>
+                      <p className="text-gray-700 dark:text-gray-300 text-sm">
+                        Choose from multiple themes or create a custom color palette
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[#00d2ff] mt-0.5" />
+                    <div>
+                      <p className="text-gray-700 dark:text-gray-300 text-sm">
+                        Select card materials including metal, recycled plastic, or biodegradable options
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[#00d2ff] mt-0.5" />
+                    <div>
+                      <p className="text-gray-700 dark:text-gray-300 text-sm">
+                        Add custom messaging and personalization for each cardholder
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white dark:bg-[#111111] p-6 rounded-xl border border-gray-200 dark:border-gray-800">
+                <h3 className="text-xl font-medium mb-4 text-gray-900 dark:text-white">Digital Wallet Integration</h3>
+                <div className="flex items-center gap-6 mb-6">
+                  <Smartphone className="h-10 w-10 text-[#00d2ff]" />
+                  <div>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm">
+                      All cards are compatible with major digital wallets including Apple Pay, Google Pay, and Samsung
+                      Pay
+                    </p>
+                  </div>
                 </div>
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h4 className="text-[#00d2ff] font-medium mb-2">Transaction Monitoring</h4>
-                  <p className="text-gray-400 text-sm">Track all card activity in real-time</p>
-                </div>
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h4 className="text-[#00d2ff] font-medium mb-2">Fraud Prevention</h4>
-                  <p className="text-gray-400 text-sm">Advanced security features to protect users</p>
-                </div>
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h4 className="text-[#00d2ff] font-medium mb-2">Analytics</h4>
-                  <p className="text-gray-400 text-sm">Detailed reports and spending insights</p>
+                <div className="relative h-48 w-full rounded-lg overflow-hidden">
+                  <Image src="/mobile-wallet.png" alt="Mobile wallet with card" fill className="object-cover" />
                 </div>
               </div>
-              <Button className="w-full bg-[#00d2ff] hover:bg-[#00b8e0] text-black rounded-md">
-                Request Dashboard Demo
-              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Dashboard & Analytics */}
+      <section className="py-16 bg-[#0c0c0c]">
+        <div className="container mx-auto">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="h-1 w-6 bg-gray-700 rounded-full"></div>
+            <span className="text-xs text-gray-400 uppercase">Management & Analytics</span>
+          </div>
+          <h2 className="text-3xl font-bold mb-6">Powerful Card Management Dashboard</h2>
+          <p className="text-gray-400 mb-8 max-w-3xl">
+            Our intuitive dashboard gives you complete control over your card program. Monitor transactions, manage user
+            accounts, and analyze spending patterns in real-time.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="relative h-96 rounded-xl overflow-hidden border border-gray-800">
+              <Image src="/card-dashboard.png" alt="Card management dashboard" fill className="object-cover" />
+            </div>
+
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="bg-[#00d2ff]/10 p-3 rounded-lg">
+                  <BarChart className="h-6 w-6 text-[#00d2ff]" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-2 text-gray-900 dark:text-white">Real-time Analytics</h3>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    Track spending patterns, monitor transaction volumes, and identify trends with our powerful
+                    analytics tools.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-purple-500/10 p-3 rounded-lg">
+                  <Shield className="h-6 w-6 text-purple-500" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-2 text-gray-900 dark:text-white">Fraud Prevention</h3>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    Advanced AI-powered fraud detection systems protect your users and reduce financial risk.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-[#00d2ff]/10 p-3 rounded-lg">
+                  <CreditCardIcon className="h-6 w-6 text-[#00d2ff]" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-2 text-gray-900 dark:text-white">Card Controls</h3>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    Enable users to freeze cards, set spending limits, and control where their cards can be used.
+                  </p>
+                </div>
+              </div>
+
+              <div className="relative h-48 rounded-lg overflow-hidden mt-8">
+                <Image src="/card-usage.png" alt="Card usage analytics" fill className="object-cover" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Integration Workflow */}
-      <section className="py-16 bg-[#0c0c0c]">
+      <section className="py-16">
         <div className="container mx-auto">
           <div className="flex items-center gap-2 mb-8">
             <div className="h-1 w-6 bg-gray-700 rounded-full"></div>
@@ -222,7 +276,7 @@ export default function BaasCardSolutionsPage() {
       </section>
 
       {/* Pricing & SLA */}
-      <section className="py-16">
+      <section className="py-16 bg-[#0c0c0c]">
         <div className="container mx-auto">
           <div className="flex items-center gap-2 mb-8">
             <div className="h-1 w-6 bg-gray-700 rounded-full"></div>

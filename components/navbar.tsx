@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/theme-toggle"
 import { cn } from "@/lib/utils"
 import { ChevronDown } from "lucide-react"
 
@@ -81,21 +82,23 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
-            ? "mx-4 mt-4 bg-[#0a0a0a]/90 backdrop-blur-md py-2 rounded-full border border-gray-800 shadow-lg"
+            ? "mx-4 mt-4 bg-white/90 dark:bg-[#0a0a0a]/90 backdrop-blur-md py-2 rounded-full border border-gray-200 dark:border-gray-800 shadow-lg"
             : "bg-transparent py-4",
         )}
       >
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
-              <div className="relative w-10 h-10 md:w-12 md:h-12">
-                <Image src="/logo.png" alt="Web3 Savannah Logo" fill className="object-contain" />
+              <div className="relative w-32 h-10">
+                <Image src="/landscapelogo.webp" alt="Web3 Savannah Logo" fill className="object-contain" />
               </div>
-              <span className="font-bold text-white">Web3 Savannah</span>
             </Link>
           </div>
           <nav className="hidden md:flex items-center space-x-6">
-            <Link href="/" className="text-sm hover:text-gray-300">
+            <Link
+              href="/"
+              className="text-sm text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300"
+            >
               Home
             </Link>
             <div
@@ -105,46 +108,56 @@ export function Navbar() {
             >
               <button
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
-                className="flex items-center gap-1 text-sm hover:text-gray-300"
+                className="flex items-center gap-1 text-sm text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300"
               >
                 Services
                 <ChevronDown className="h-4 w-4" />
               </button>
               {isServicesOpen && (
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[600px] bg-[#111111] border border-gray-800 rounded-xl shadow-xl p-6 grid grid-cols-2 gap-6 z-50">
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[600px] bg-white dark:bg-[#111111] border border-gray-200 dark:border-gray-800 rounded-xl shadow-xl p-6 grid grid-cols-2 gap-6 z-50">
                   {services.map((service, index) => (
                     <Link
                       key={index}
                       href={service.href}
-                      className="flex gap-4 p-3 rounded-lg hover:bg-gray-800 transition-colors"
+                      className="flex gap-4 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                     >
                       <div className="flex-shrink-0">{service.icon}</div>
                       <div>
-                        <h3 className="font-medium">{service.title}</h3>
-                        <p className="text-sm text-gray-400">{service.description}</p>
+                        <h3 className="font-medium text-gray-900 dark:text-white">{service.title}</h3>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">{service.description}</p>
                       </div>
                     </Link>
                   ))}
                 </div>
               )}
             </div>
-            <Link href="/events" className="text-sm hover:text-gray-300">
+            <Link
+              href="/events"
+              className="text-sm text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300"
+            >
               Events
             </Link>
-            <Link href="/blog" className="text-sm hover:text-gray-300">
+            <Link
+              href="/blog"
+              className="text-sm text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300"
+            >
               Blog
             </Link>
-            <Link href="/about" className="text-sm hover:text-gray-300">
+            <Link
+              href="/about"
+              className="text-sm text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300"
+            >
               About
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <div className="text-xs text-gray-400 hidden md:block">Today: 05/15/2025</div>
+            <div className="text-xs text-gray-500 dark:text-gray-400 hidden md:block">Today: 05/15/2025</div>
+            <ThemeToggle />
             <Button asChild className="bg-[#00d2ff] hover:bg-[#00b8e0] text-black rounded-md text-sm px-4 py-2">
               <Link href="/get-started">Contact Us</Link>
             </Button>
             <button
-              className="md:hidden text-white"
+              className="md:hidden text-gray-800 dark:text-white"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -168,31 +181,30 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-black pt-16 pb-6 px-4 md:hidden overflow-y-auto">
+        <div className="fixed inset-0 z-40 bg-white dark:bg-black pt-16 pb-6 px-4 md:hidden overflow-y-auto">
           <div className="flex items-center gap-2 mb-8">
-            <div className="relative w-10 h-10">
-              <Image src="/logo.png" alt="Web3 Savannah Logo" fill className="object-contain" />
+            <div className="relative w-32 h-10">
+              <Image src="/landscapelogo.webp" alt="Web3 Savannah Logo" fill className="object-contain" />
             </div>
-            <span className="font-bold text-white">Web3 Savannah</span>
           </div>
           <nav className="flex flex-col space-y-6 mt-8">
             <Link
               href="/"
-              className="text-lg font-medium hover:text-gray-300"
+              className="text-lg font-medium text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
             </Link>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-lg font-medium">Services</h3>
+                <h3 className="text-lg font-medium text-gray-800 dark:text-white">Services</h3>
               </div>
               <div className="ml-4 space-y-4">
                 {services.map((service, index) => (
                   <Link
                     key={index}
                     href={service.href}
-                    className="flex items-center gap-3 text-gray-300 hover:text-white"
+                    className="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <div className="flex-shrink-0">{service.icon}</div>
@@ -203,25 +215,29 @@ export function Navbar() {
             </div>
             <Link
               href="/events"
-              className="text-lg font-medium hover:text-gray-300"
+              className="text-lg font-medium text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Events
             </Link>
             <Link
               href="/blog"
-              className="text-lg font-medium hover:text-gray-300"
+              className="text-lg font-medium text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Blog
             </Link>
             <Link
               href="/about"
-              className="text-lg font-medium hover:text-gray-300"
+              className="text-lg font-medium text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About
             </Link>
+            <div className="flex items-center gap-4">
+              <ThemeToggle />
+              <span className="text-gray-500 dark:text-gray-400">Toggle theme</span>
+            </div>
             <Button
               asChild
               className="bg-[#00d2ff] hover:bg-[#00b8e0] text-black rounded-md text-lg w-full py-3 mt-4"

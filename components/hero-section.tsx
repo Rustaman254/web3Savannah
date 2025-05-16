@@ -1,6 +1,9 @@
+"use client"
+
 import type React from "react"
 import Image from "next/image"
 import { AnimatedStarsBackground } from "@/components/animated-stars-background"
+import { useTheme } from "@/components/theme-provider"
 
 interface HeroSectionProps {
   title: string
@@ -10,8 +13,12 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ title, description, logoUrl, children }: HeroSectionProps) {
+  const { theme } = useTheme()
+
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-b from-[#0a0a0a] to-[#121212]">
+    <section
+      className={`relative py-20 overflow-hidden ${theme === "dark" ? "bg-gradient-to-b from-[#0a0a0a] to-[#121212]" : "bg-gradient-to-b from-gray-50 to-white"}`}
+    >
       <AnimatedStarsBackground />
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between">
@@ -31,7 +38,9 @@ export function HeroSection({ title, description, logoUrl, children }: HeroSecti
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0a0a] to-transparent"></div>
+      <div
+        className={`absolute bottom-0 left-0 right-0 h-24 ${theme === "dark" ? "bg-gradient-to-t from-[#0a0a0a] to-transparent" : "bg-gradient-to-t from-white to-transparent"}`}
+      ></div>
     </section>
   )
 }

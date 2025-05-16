@@ -30,7 +30,7 @@ export function PricingCard({
   return (
     <div
       className={cn(
-        "bg-[#111111] rounded-xl border border-gray-800 p-8 relative",
+        "bg-white dark:bg-[#111111] rounded-xl border border-gray-200 dark:border-gray-800 p-8 relative",
         popular && "border-[#00d2ff] shadow-lg shadow-[#00d2ff]/10",
         className,
       )}
@@ -41,16 +41,16 @@ export function PricingCard({
         </div>
       )}
 
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
+      <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{title}</h3>
       <div className="flex items-end gap-1 mb-4">
-        <span className="text-3xl font-bold">{price}</span>
-        {price !== "Custom" && <span className="text-gray-400 text-sm">{period}</span>}
+        <span className="text-3xl font-bold text-gray-900 dark:text-white">{price}</span>
+        {price !== "Custom" && <span className="text-gray-500 dark:text-gray-400 text-sm">{period}</span>}
       </div>
-      <p className="text-gray-400 text-sm mb-6">{description}</p>
+      <p className="text-gray-600 dark:text-gray-400 text-sm mb-6">{description}</p>
 
       <ul className="space-y-3 mb-8">
         {features.map((feature, index) => (
-          <li key={index} className="flex items-start gap-2 text-sm">
+          <li key={index} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
             <CheckCircle className="h-5 w-5 text-[#00d2ff] flex-shrink-0 mt-0.5" />
             <span>{feature.name}</span>
           </li>
@@ -62,7 +62,7 @@ export function PricingCard({
           "w-full",
           popular
             ? "bg-[#00d2ff] hover:bg-[#00b8e0] text-black"
-            : "bg-transparent hover:bg-gray-800 text-white border border-gray-700",
+            : "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700",
         )}
       >
         {ctaText}

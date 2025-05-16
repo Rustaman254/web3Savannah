@@ -35,9 +35,9 @@ export function EventCard({
   }
 
   return (
-    <div className="bg-[#111111] rounded-xl border border-gray-800 overflow-hidden hover:border-gray-700 transition-all duration-300 group">
+    <div className="bg-white dark:bg-[#111111] rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300 group">
       <div className="relative">
-        <div className="h-48 bg-gray-800 relative overflow-hidden">
+        <div className="h-48 bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
           <Image
             src={imageUrl || "/placeholder.svg"}
             alt={title}
@@ -48,28 +48,30 @@ export function EventCard({
         <div className={`absolute top-3 right-3 ${typeColors[type]} text-xs px-2 py-1 rounded`}>{type}</div>
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-medium mb-4 group-hover:text-[#00d2ff] transition-colors">{title}</h3>
-        <p className="text-gray-400 text-sm mb-6 line-clamp-3">{description}</p>
+        <h3 className="text-xl font-medium mb-4 text-gray-900 dark:text-white group-hover:text-[#00d2ff] transition-colors">
+          {title}
+        </h3>
+        <p className="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-3">{description}</p>
         <div className="space-y-3 mb-6">
-          <div className="flex items-center gap-2 text-sm text-gray-400">
+          <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
             <Calendar className="h-4 w-4 text-[#00d2ff]" />
             <span>{date}</span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-gray-400">
+          <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
             <Clock className="h-4 w-4 text-[#00d2ff]" />
             <span>{time}</span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-gray-400">
+          <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
             <MapPin className="h-4 w-4 text-[#00d2ff]" />
             <span>{location}</span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-gray-400">
+          <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
             <Users className="h-4 w-4 text-[#00d2ff]" />
             <span>{capacity}</span>
           </div>
         </div>
         <Link href={`/events/${slug}`}>
-          <Button className="w-full bg-transparent hover:bg-gray-800 text-white border border-gray-700 hover:border-[#00d2ff] transition-colors">
+          <Button className="w-full bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 hover:border-[#00d2ff] dark:hover:border-[#00d2ff] transition-colors">
             View Event
           </Button>
         </Link>
