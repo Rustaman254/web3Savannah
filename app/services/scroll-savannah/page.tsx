@@ -13,7 +13,7 @@ export default function ScrollSavannahPage() {
       <ServiceHero
         title="Scroll Savannah"
         description="Building the future of Ethereum scalability in Africa through our strategic partnership with Scroll, bringing Layer 2 solutions to emerging markets."
-        image="/placeholder.svg?height=1080&width=1920"
+        image="/1_52j_-YffoPNBR_-ji_8rlQ (1).jpg"
       />
 
       {/* Scroll Partnership */}
