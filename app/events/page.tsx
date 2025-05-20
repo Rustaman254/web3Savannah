@@ -15,7 +15,7 @@ const events = [
     time: "9:00 AM - 5:00 PM",
     location: "Nairobi, Kenya",
     capacity: "Limited to 100 participants",
-    imageUrl: "/placeholder.svg?height=400&width=600",
+    imageUrl: "/Image_fx (3).jpg",
     type: "in-person" as const,
     slug: "web3-savannah-hackathon-2025",
   },
@@ -28,7 +28,7 @@ const events = [
     time: "2:00 PM - 4:00 PM",
     location: "Online (Zoom)",
     capacity: "Unlimited participants",
-    imageUrl: "/placeholder.svg?height=400&width=600",
+    imageUrl: "/Image_fx (7) (1).jpg",
     type: "virtual" as const,
     slug: "ai-finance-workshop-2025",
   },
@@ -41,7 +41,7 @@ const events = [
     time: "9:00 AM - 6:00 PM",
     location: "Lagos, Nigeria",
     capacity: "Limited to 50 participants",
-    imageUrl: "/placeholder.svg?height=400&width=600",
+    imageUrl: "/Image_fx (1).jpg",
     type: "in-person" as const,
     slug: "blockchain-developer-bootcamp-2025",
   },
@@ -54,7 +54,7 @@ const events = [
     time: "10:00 AM - 6:00 PM",
     location: "Cape Town, South Africa",
     capacity: "Limited to 300 participants",
-    imageUrl: "/placeholder.svg?height=400&width=600",
+    imageUrl: "/ChatGPT Image May 20, 2025, 11_40_49 AM.png",
     type: "in-person" as const,
     slug: "defi-summit-africa-2025",
   },
@@ -67,7 +67,7 @@ const events = [
     time: "11:00 AM - 3:00 PM",
     location: "Accra, Ghana & Online",
     capacity: "200 in-person, unlimited online",
-    imageUrl: "/placeholder.svg?height=400&width=600",
+    imageUrl: "/Image_fx (7).jpg",
     type: "hybrid" as const,
     slug: "web3-social-impact-2025",
   },
@@ -80,7 +80,7 @@ const events = [
     time: "12:00 PM - 8:00 PM",
     location: "Kigali, Rwanda",
     capacity: "Open to public",
-    imageUrl: "/placeholder.svg?height=400&width=600",
+    imageUrl: "/Image_fx (5).jpg",
     type: "in-person" as const,
     slug: "nft-art-exhibition-2025",
   },
@@ -94,7 +94,7 @@ export default function EventsPage() {
       <HeroSection
         title="Web3 Savannah Events"
         description="Join our community at upcoming blockchain and Web3 events across Africa. Network with industry leaders, learn from experts, and stay at the forefront of innovation."
-        logoUrl="/ChatGPT Image May 20, 2025, 11_40_49 AM.png"
+        logoUrl="/logo-large.png"
       >
         <div className="flex flex-col sm:flex-row gap-4">
           <Button className="bg-[#00d2ff] hover:bg-[#00b8e0] text-black rounded-md px-6 py-2">Browse Events</Button>
@@ -190,7 +190,7 @@ export default function EventsPage() {
               <div className="relative h-64 md:h-auto">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] to-transparent z-10 md:hidden"></div>
                 <img
-                  src="/placeholder.svg?height=600&width=800"
+                  src="/Image_fx.jpg"
                   alt="Web3 Savannah Hackathon"
                   className="w-full h-full object-cover"
                 />
