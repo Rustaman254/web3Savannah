@@ -251,9 +251,15 @@ export default function Home() {
 
             <div className="bg-gray-100 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-800 flex items-center justify-center">
               <div className="text-gray-400 dark:text-gray-500">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+{/*                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 8V16M8 12H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
+                </svg> */}
+                <img
+                  src="/Image_fx (2).jpg"
+                  alt="Web3 Savannah Hackathon"
+                  className="w-full h-full object-cover"
+                />
+
               </div>
             </div>
           </div>
@@ -280,9 +286,11 @@ export default function Home() {
               <div className="relative">
                 <div className="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
                   <div className="text-gray-400 dark:text-gray-500">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 8V16M8 12H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
+                    <img
+                      src="/Image_fx (2).jpg"
+                      alt="Web3 Savannah Hackathon"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <div className="absolute top-3 right-3 bg-purple-600 text-xs px-2 py-1 rounded">In-Person</div>
@@ -322,9 +330,11 @@ export default function Home() {
               <div className="relative">
                 <div className="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
                   <div className="text-gray-400 dark:text-gray-500">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 8V16M8 12H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
+                    <img
+                      src="/Image_fx (2).jpg"
+                      alt="Web3 Savannah Hackathon"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <div className="absolute top-3 right-3 bg-purple-600 text-xs px-2 py-1 rounded">Virtual</div>
@@ -364,9 +374,11 @@ export default function Home() {
               <div className="relative">
                 <div className="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
                   <div className="text-gray-400 dark:text-gray-500">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 8V16M8 12H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
+                    <img
+                      src="/Image_fx (2).jpg"
+                      alt="Web3 Savannah Hackathon"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <div className="absolute top-3 right-3 bg-purple-600 text-xs px-2 py-1 rounded">In-Person</div>
@@ -434,9 +446,11 @@ export default function Home() {
               <div className="relative">
                 <div className="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
                   <div className="text-gray-400 dark:text-gray-500">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 8V16M8 12H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
+                    <img
+                      src="/Image_fx (2).jpg"
+                      alt="Web3 Savannah Hackathon"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <div className="absolute top-3 right-3 bg-purple-600 text-xs px-2 py-1 rounded">New</div>
@@ -466,9 +480,11 @@ export default function Home() {
               <div className="relative">
                 <div className="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
                   <div className="text-gray-400 dark:text-gray-500">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 8V16M8 12H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
+                    <img
+                      src="/Image_fx (2).jpg"
+                      alt="Web3 Savannah Hackathon"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <div className="absolute top-3 right-3 bg-purple-600 text-xs px-2 py-1 rounded">Featured</div>
@@ -498,9 +514,11 @@ export default function Home() {
               <div className="relative">
                 <div className="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
                   <div className="text-gray-400 dark:text-gray-500">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 8V16M8 12H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
+                    <img
+                      src="/Image_fx (2).jpg"
+                      alt="Web3 Savannah Hackathon"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <div className="absolute top-3 right-3 bg-purple-600 text-xs px-2 py-1 rounded">Popular</div>
