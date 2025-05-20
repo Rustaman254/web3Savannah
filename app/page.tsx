@@ -287,7 +287,7 @@ export default function Home() {
                 <div className="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
                   <div className="text-gray-400 dark:text-gray-500">
                     <img
-                      src="/Image_fx (2).jpg"
+                      src="/Image_fx (3).jpg"
                       alt="Web3 Savannah Hackathon"
                       className="w-full h-full object-cover"
                     />
@@ -331,7 +331,7 @@ export default function Home() {
                 <div className="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
                   <div className="text-gray-400 dark:text-gray-500">
                     <img
-                      src="/Image_fx (2).jpg"
+                      src="/Image_fx (7) (1).jpg"
                       alt="Web3 Savannah Hackathon"
                       className="w-full h-full object-cover"
                     />
@@ -375,7 +375,7 @@ export default function Home() {
                 <div className="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
                   <div className="text-gray-400 dark:text-gray-500">
                     <img
-                      src="/Image_fx (2).jpg"
+                      src="/Image_fx (1).jpg"
                       alt="Web3 Savannah Hackathon"
                       className="w-full h-full object-cover"
                     />
