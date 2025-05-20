@@ -94,7 +94,7 @@ export default function EventsPage() {
       <HeroSection
         title="Web3 Savannah Events"
         description="Join our community at upcoming blockchain and Web3 events across Africa. Network with industry leaders, learn from experts, and stay at the forefront of innovation."
-        logoUrl="/logo-large.png"
+        logoUrl="/ChatGPT Image May 20, 2025, 11_40_49 AM.png"
       >
         <div className="flex flex-col sm:flex-row gap-4">
           <Button className="bg-[#00d2ff] hover:bg-[#00b8e0] text-black rounded-md px-6 py-2">Browse Events</Button>
