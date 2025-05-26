@@ -1,123 +1,13 @@
-import Image from "next/image";
-import { Navbar } from "@/components/navbar";
-import { ServiceCTA } from "@/components/service-cta";
-import { ServiceFooter } from "@/components/service-footer";
-import { PricingCard } from "@/components/pricing-card";
-import { ProcessStep } from "@/components/process-step";
-import { Button } from "@/components/ui/button";
-import { CheckCircle, CreditCardIcon, Database, Lock, Shield, Smartphone, BarChart } from "lucide-react";
-import { useState } from "react";
-
-// Fallback CustomCard component for preview
-function CustomCard({ name, gradient, color }: { name: string; gradient: string; color: string }) {
-  return (
-    <div
-      className={`relative h-48 w-full max-w-sm mx-auto rounded-lg overflow-hidden border border-gray-800 bg-gradient-to-r ${gradient}`}
-      style={{ boxShadow: `0 0 10px ${color}40` }}
-    >
-      <div className="p-4 h-full flex flex-col justify-between">
-        {/* Card Chip and Logo */}
-        <div className="flex justify-between items-start">
-          <div className="w-10 h-6 bg-gray-300 rounded-sm"></div>
-          <Image src="/brand-logo.png" alt="Brand Logo" width={40} height={40} className="object-contain" />
-        </div>
-        {/* Card Number */}
-        <div className="text-white text-sm font-mono tracking-wider">**** **** **** 1234</div>
-        {/* Cardholder Name and Expiry */}
-        <div className="flex justify-between items-end">
-          <div>
-            <p className="text-xs text-gray-300">Cardholder Name</p>
-            <p className="text-sm font-semibold text-white uppercase">{name || "John Doe"}</p>
-          </div>
-          <div>
-            <p className="text-xs text-gray-300">Expires</p>
-            <p className="text-sm text-white">12/28</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Component for premium theme selection with dynamic card preview
-function PremiumCardThemeSelector() {
-  const themes = [
-    {
-      name: "Bronze",
-      color: "#cd7f32",
-      description: "A warm, rustic metallic finish for a timeless appeal.",
-      gradient: "from-[#cd7f32] to-[#a16207]",
-    },
-    {
-      name: "Silver",
-      color: "#c0c0c0",
-      description: "Sleek and modern, perfect for a professional look.",
-      gradient: "from-[#c0c0c0] to-[#a3a3a3]",
-    },
-    {
-      name: "Gold",
-      color: "#ffd700",
-      description: "Luxurious and bold, designed to stand out.",
-      gradient: "from-[#ffd700] to-[#d4af37]",
-    },
-    {
-      name: "Platinum",
-      color: "#e5e4e2",
-      description: "Elegant and understated, for premium exclusivity.",
-      gradient: "from-[#e5e4e2] to-[#b0b0b0]",
-    },
-    {
-      name: "Obsidian",
-      color: "#1c2526",
-      description: "Glossy dark finish with a sophisticated edge.",
-      gradient: "from-[#1c2526] to-[#3b444b]",
-    },
-  ];
-
-  const [selectedTheme, setSelectedTheme] = useState(themes[0]);
-  const [cardholderName, setCardholderName] = useState("");
-
-  return (
-    <div className="space-y-6">
-      <h3 className="text-xl font-medium text-white">Customize Your Card</h3>
-      {/* Name Input */}
-      <div>
-        <label htmlFor="cardholder-name" className="block text-sm text-gray-400 mb-2">
-          Cardholder Name
-        </label>
-        <input
-          type="text"
-          id="cardholder-name"
-          placeholder="Enter your name"
-          value={cardholderName}
-          onChange={(e) => setCardholderName(e.target.value)}
-          className="w-full max-w-xs bg-gray-800 border border-gray-700 rounded-md px-4 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#00d2ff]"
-        />
-      </div>
-      {/* Card Preview */}
-      <CustomCard name={cardholderName} gradient={selectedTheme.gradient} color={selectedTheme.color} />
-      {/* Theme Selector */}
-      <div className="grid grid-cols-3 gap-3">
-        {themes.map((theme) => (
-          <div
-            key={theme.name}
-            className={`relative p-3 rounded-lg border ${
-              selectedTheme.name === theme.name ? "border-[#00d2ff]" : "border-gray-800"
-            } bg-[#111111] hover:border-[#00d2ff] transition-colors cursor-pointer`}
-            onClick={() => setSelectedTheme(theme)}
-          >
-            <div
-              className={`h-12 rounded-md mb-2 bg-gradient-to-r ${theme.gradient}`}
-              style={{ boxShadow: `0 0 8px ${theme.color}40` }}
-            ></div>
-            <h4 className="text-sm font-semibold text-white">{theme.name}</h4>
-            <p className="text-xs text-gray-400 line-clamp-2">{theme.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+import Image from "next/image"
+import { Navbar } from "@/components/navbar"
+import { ServiceCTA } from "@/components/service-cta"
+import { ServiceFooter } from "@/components/service-footer"
+import { CreditCard } from "@/components/credit-card"
+import { CardThemeSelector } from "@/components/card-theme-selector"
+import { PricingCard } from "@/components/pricing-card"
+import { ProcessStep } from "@/components/process-step"
+import { Button } from "@/components/ui/button"
+import { CheckCircle, CreditCardIcon, Database, Lock, Shield, Smartphone, BarChart } from "lucide-react"
 
 export default function BaasCardSolutionsPage() {
   return (
@@ -144,7 +34,7 @@ export default function BaasCardSolutionsPage() {
               </Button>
             </div>
             <div className="flex justify-center">
-              <CustomCard name="John Doe" gradient="from-[#00d2ff] to-[#00b8e0]" color="#00d2ff" />
+              <CreditCard />
             </div>
           </div>
         </div>
@@ -212,16 +102,16 @@ export default function BaasCardSolutionsPage() {
         <div className="container mx-auto">
           <div className="flex items-center gap-2 mb-4">
             <div className="h-1 w-6 bg-gray-700 rounded-full"></div>
-            <span className="text-xs text-gray-400 uppercase">Premium Card Themes</span>
+            <span className="text-xs text-gray-400 uppercase">Card Customization</span>
           </div>
-          <h2 className="text-3xl font-bold mb-6">Craft Luxurious Cards with Premium Metallic Themes</h2>
+          <h2 className="text-3xl font-bold mb-6">Design Cards That Reflect Your Brand</h2>
           <p className="text-gray-400 mb-8 max-w-3xl">
-            Personalize your card with your name and choose from our exclusive Bronze, Silver, Gold, Platinum, and Obsidian
-            themes to create a luxurious, branded experience.
+            Choose from multiple themes or create a completely custom design. Our cards are fully customizable to match
+            your brand identity and appeal to your users.
           </p>
 
           <div className="grid md:grid-cols-2 gap-12">
-            <PremiumCardThemeSelector />
+            <CardThemeSelector />
 
             <div className="space-y-8">
               <div className="bg-white dark:bg-[#111111] p-6 rounded-xl border border-gray-200 dark:border-gray-800">
@@ -242,7 +132,7 @@ export default function BaasCardSolutionsPage() {
                     <CheckCircle className="h-5 w-5 text-[#00d2ff] mt-0.5" />
                     <div>
                       <p className="text-gray-700 dark:text-gray-300 text-sm">
-                        Choose from premium metallic themes or create a custom color palette
+                        Choose from multiple themes or create a custom color palette
                       </p>
                     </div>
                   </li>
@@ -268,11 +158,11 @@ export default function BaasCardSolutionsPage() {
               <div className="bg-white dark:bg-[#111111] p-6 rounded-xl border border-gray-200 dark:border-gray-800">
                 <h3 className="text-xl font-medium mb-4 text-gray-900 dark:text-white">Digital Wallet Integration</h3>
                 <div className="flex items-center gap-6 mb-6">
-                  <Smartphone className="h-10 w-10" />
+                  <Smartphone className="h-10 w-10 text-[#00d2ff]" />
                   <div>
                     <p className="text-gray-700 dark:text-gray-300 text-sm">
                       All cards are compatible with major digital wallets including Apple Pay, Google Pay, and Samsung
-                      Pay.
+                      Pay
                     </p>
                   </div>
                 </div>
@@ -319,133 +209,131 @@ export default function BaasCardSolutionsPage() {
 
               <div className="flex items-start gap-4">
                 <div className="bg-purple-500/10 p-3 rounded-lg">
-                  <Shield className="h-6 w-6 text-purple" />
+                  <Shield className="h-6 w-6 text-purple-500" />
                 </div>
                 <div>
-                    <h3 className="text-xl font-bold mb-2 text-white dark:text-white">Fraud Protection</h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      Advanced AI-powered fraud detection systems protect your cards from unauthorized access.
-                    </p>
+                  <h3 className="text-xl font-medium mb-2 text-gray-900 dark:text-white">Fraud Prevention</h3>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    Advanced AI-powered fraud detection systems protect your users and reduce financial risk.
+                  </p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <div className="bg-[#00D2FF]/10 p-4 rounded-lg">
-                  <CreditCardIcon className="h-6 w-4 text-[#00D2FF]" />
+              <div className="flex items-start gap-4">
+                <div className="bg-[#00d2ff]/10 p-3 rounded-lg">
+                  <CreditCardIcon className="h-6 w-6 text-[#00d2ff]" />
                 </div>
                 <div>
-                    <h3 className="text-xl font-bold mb-2 text-white">Card Controls</h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      Enable users to freeze cards, set spending limits, and control where their cards can be used.
-                    </p>
+                  <h3 className="text-xl font-medium mb-2 text-gray-900 dark:text-white">Card Controls</h3>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    Enable users to freeze cards, set spending limits, and control where their cards can be used.
+                  </p>
                 </div>
               </div>
 
-              <div className="relative h-48 w-full rounded-md overflow-hidden mt-6">
-                <Image src="/card-stats.png" alt="Card usage statistics" fill className="h-full w-full object-cover object-cover" />
-            />
+              <div className="relative h-48 rounded-lg overflow-hidden mt-8">
+                <Image src="/card-usage.png" alt="Card usage analytics" fill className="object-cover" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Integration Workflow */}
-      <section className="py-12">
+      <section className="py-16">
         <div className="container mx-auto">
-<div className="flex items-center gap-2 mb-4">
-          <div class="="h-4" w-6="bg-gray-700 rounded-full"></div>
-            <span class="="text-sm text-gray-500 uppercase">Integration Process</span>
-            </div>
-            <h2 class="="text-2xl font-bold mb-6">A Simple Process to Launch Your Card Program</h3>
-            </h2>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-              <ProcessCard
-                number="1"
-                title="Connect"
-                description="Integrate our API using our SDK or direct API endpoints."
-              />
-              <ProcessCard
-                number="2"
-                title="Verify"
-                description="Set up KYC/AML compliance for secure user onboarding."
-              />
-              <ProcessCard
-                number="3"
-                title="Design"
-                description="Customize cards with your branding and set usage rules."
-              />
-              <ProcessCard
-                number="4"
-                title="Launch"
-                description="Issue cards to your users and go live with your program."
-              />
-            </div>
+          <div className="flex items-center gap-2 mb-8">
+            <div className="h-1 w-6 bg-gray-700 rounded-full"></div>
+            <span className="text-xs text-gray-400 uppercase">Integration Workflow</span>
           </div>
+          <h2 className="text-3xl font-bold mb-12">
+            A simple four-step process to launch your financial services offering.
+          </h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <ProcessStep
+              number="01"
+              title="Integration"
+              description="Connect our API to your platform using our SDK or direct API calls."
+            />
+            <ProcessStep
+              number="02"
+              title="Compliance"
+              description="Set up your compliance workflow for user verification and KYC/AML."
+            />
+            <ProcessStep
+              number="03"
+              title="Customization"
+              description="Design your card experience, define spending rules, and set limits."
+            />
+            <ProcessStep
+              number="04"
+              title="Launch"
+              description="Go live with your cards program and start issuing to customers."
+            />
+          </div>
+        </div>
       </section>
 
       {/* Pricing & SLA */}
-      <section className="py-12 bg-[#0c0c0c]">
+      <section className="py-16 bg-[#0c0c0c]">
         <div className="container mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="h-1 w-6 bg-gray-700 rounded rounded-full"></div>
+          <div className="flex items-center gap-2 mb-8">
+            <div className="h-1 w-6 bg-gray-700 rounded-full"></div>
             <span className="text-xs text-gray-400 uppercase">Pricing & SLA</span>
           </div>
-            <h2 className="text-3xl font-bold mb-6">Transparent Pricing for All Businesses</h2>
-            <p className="text-gray-600 mb-12">
-              Flexible plans with service-level agreements to suit startups and enterprises alike.
-            </p>
+          <h2 className="text-3xl font-bold mb-12">
+            Transparent pricing with service level guarantees for businesses of all sizes.
+          </h2>
 
-            <div className="grid grid-cols-3 gap-3">
-              <PricingCard
-                title="Basic"
-                price="$500"
-                description="Ideal for startups and small businesses."
-                features={[
-                  "Virtual card issuance",
-                  "Basic KYC tools",
-                  "Up to 1,000 users",
-                  "Email support",
-                ]}
-                ctaText="Get Started Now"
-              />
-
-            <PricingPlanCard
-              title="Pro Plan"
-              price="$1,500",
-              description="Perfect for growing businesses."
-              features=[
-                "Physical & virtual cards",
-                "Advanced KYC/AML compliance",
-                "Up to 10,000 users",
-                "Priority support",
-                "Custom designs",
+          <div className="grid md:grid-cols-3 gap-8">
+            <PricingCard
+              title="Starter"
+              price="$499"
+              description="Perfect for startups and small businesses"
+              features={[
+                { name: "Virtual cards" },
+                { name: "Basic KYC integration" },
+                { name: "Up to 1,000 users" },
+                { name: "Email support" },
               ]}
-              ctaText="Get Started Now"
+              ctaText="Get Started"
+            />
+
+            <PricingCard
+              title="Growth"
+              price="$1,499"
+              description="Ideal for growing companies"
+              features={[
+                { name: "Virtual & physical cards" },
+                { name: "Advanced KYC/AML tools" },
+                { name: "Up to 10,000 users" },
+                { name: "Priority support" },
+                { name: "Custom card designs" },
+              ]}
+              ctaText="Get Started"
               popular={true}
             />
 
             <PricingCard
-              title="Enterprise Plan"
-              price="Custom Pricing"
+              title="Enterprise"
+              price="Custom"
               period=""
-              description="Tailored for large organizations."
-              features=[
-                "Unlimited cards & users",
-                "Full compliance suite",
-                "Dedicated account manager",
-                "Custom integrations",
-                "SLA guarantees",
-                "On-premise deployment",
+              description="For large organizations with complex needs"
+              features={[
+                { name: "Unlimited cards & users" },
+                { name: "Full compliance suite" },
+                { name: "Dedicated account manager" },
+                { name: "Custom integration support" },
+                { name: "SLA guarantees" },
+                { name: "On-premise options" },
               ]}
-              ctaText="Contact Us"
+              ctaText="Get Started"
             />
           </div>
 
-          <div className="text-center mt-4">
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
-              Need a custom plan? Reach out to our sales team.
-            </p>
+          <div className="text-center mt-8">
+            <p className="text-gray-400 mb-4">Need a custom solution? Contact our sales team.</p>
             <Button variant="outline" className="border-gray-700 text-white hover:bg-gray-800">
               Contact Sales
             </Button>
@@ -454,13 +342,13 @@ export default function BaasCardSolutionsPage() {
       </section>
 
       <ServiceCTA
-        title="Ready to Transform Financial Services?"
-        description="Start with a sandbox environment today and launch your card program."
-        primaryCTA="Access Sandbox"
-        secondaryCTA="Book a Demo"
+        title="Ready to Revolutionize Your Financial Services?"
+        description="Get started with a sandbox environment today. Our team will guide you through the integration process."
+        primaryCTA="Request Sandbox Access"
+        secondaryCTA="Schedule a Demo"
       />
 
       <ServiceFooter />
     </div>
-  );
+  )
 }
