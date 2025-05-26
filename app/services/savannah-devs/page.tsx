@@ -225,7 +225,7 @@ export default function SavannahDevsPage() {
               <div className="relative h-64 md:h-auto">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] to-transparent z-10 md:hidden"></div>
                 <img
-                  src="/placeholder.svg?height=600&width=800"
+                  src="//Image_fx (2).jpg"
                   alt="Nobellum DeFi Dashboard"
                   className="w-full h-full object-cover"
                 />
