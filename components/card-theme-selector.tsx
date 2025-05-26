@@ -11,11 +11,11 @@ interface CardThemeOption {
 }
 
 const themeOptions: CardThemeOption[] = [
-  { id: "default", name: "Default", color: "bg-gradient-to-r from-[#00d2ff] via-purple-500 to-[#00d2ff]" },
-  { id: "ocean", name: "Ocean", color: "bg-gradient-to-r from-blue-400 via-teal-500 to-blue-600" },
-  { id: "sunset", name: "Sunset", color: "bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600" },
-  { id: "neon", name: "Neon", color: "bg-gradient-to-r from-green-400 via-yellow-300 to-pink-500" },
-  { id: "midnight", name: "Midnight", color: "bg-gradient-to-r from-gray-900 via-purple-900 to-blue-900" },
+  { id: "default", name: "Bronze", color: "bg-gradient-to-r from-[#cd7f32] via-[#b87333] to-[#cd7f32]" },
+  { id: "ocean", name: "Silver", color: "bg-gradient-to-r from-[#c0c0c0] via-[#a7a7a7] to-[#c0c0c0]" },
+  { id: "sunset", name: "Gold", color: "bg-gradient-to-r from-[#ffd700] via-[#e6b800] to-[#ffd700]" },
+  { id: "neon", name: "Platinum", color: "bg-gradient-to-r from-[#e5e4e2] via-[#d8d8d6] to-[#e5e4e2]" },
+  { id: "midnight", name: "Obsidian", color: "bg-gradient-to-r from-[#1c2526] via-[#2f3d44] to-[#1c2526]" },
 ]
 
 export function CardThemeSelector() {
