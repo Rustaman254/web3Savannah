@@ -1,10 +1,63 @@
-import { Navbar } from "@/components/navbar"
-import { ServiceHero } from "@/components/service-hero"
-import { ServiceCTA } from "@/components/service-cta"
-import { ServiceFooter } from "@/components/service-footer"
-import { ServiceOption } from "@/components/service-option"
-import { Button } from "@/components/ui/button"
-import { CheckCircle, Code, Database, Server, Shield } from "lucide-react"
+import { Navbar } from "@/components/navbar";
+import { ServiceHero } from "@/components/service-hero";
+import { ServiceCTA } from "@/components/service-cta";
+import { ServiceFooter } from "@/components/service-footer";
+import { ServiceOption } from "@/components/service-option";
+import { Button } from "@/components/ui/button";
+import { CheckCircle, Code, Database, Server, Shield } from "lucide-react";
+import Image from "next/image";
+
+// Sample technology data with logos (replace with actual logo paths)
+const technologies = [
+  {
+    category: "Blockchain Platforms",
+    color: "text-[#00d2ff]",
+    items: [
+      { name: "Ethereum", logo: "/logos/ethereum.png" },
+      { name: "Polygon", logo: "/logos/polygon.png" },
+      { name: "Solana", logo: "/logos/solana.png" },
+      { name: "Polkadot", logo: "/logos/polkadot.png" },
+      { name: "Celo", logo: "/logos/celo.png" },
+      { name: "Scroll", logo: "/logos/scroll.png" },
+      { name: "Arbitrum", logo: "/logos/arbitrum.png" },
+      { name: "Optimism", logo: "/logos/optimism.png" },
+    ],
+  },
+  {
+    category: "Smart Contract Languages",
+    color: "text-purple-500",
+    items: [
+      { name: "Solidity", logo: "/logos/solidity.png" },
+      { name: "Rust", logo: "/logos/rust.png" },
+      { name: "Vyper", logo: "/logos/vyper.png" },
+      { name: "Move", logo: "/logos/move.png" },
+    ],
+  },
+  {
+    category: "Frontend Technologies",
+    color: "text-[#00d2ff]",
+    items: [
+      { name: "React", logo: "/logos/react.png" },
+      { name: "Vue", logo: "/logos/vue.png" },
+      { name: "Next.js", logo: "/logos/nextjs.png" },
+      { name: "TypeScript", logo: "/logos/typescript.png" },
+      { name: "Tailwind CSS", logo: "/logos/tailwindcss.png" },
+      { name: "ThreeJS", logo: "/logos/threejs.png" },
+    ],
+  },
+  {
+    category: "Backend & Infrastructure",
+    color: "text-purple-500",
+    items: [
+      { name: "Node.js", logo: "/logos/nodejs.png" },
+      { name: "Python", logo: "/logos/python.png" },
+      { name: "GraphQL", logo: "/logos/graphql.png" },
+      { name: "IPFS", logo: "/logos/ipfs.png" },
+      { name: "AWS", logo: "/logos/aws.png" },
+      { name: "Google Cloud", logo: "/logos/googlecloud.png" },
+    ],
+  },
+];
 
 export default function SavannahDevsPage() {
   return (
@@ -123,56 +176,33 @@ export default function SavannahDevsPage() {
             solutions.
           </p>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-medium mb-6 text-[#00d2ff]">Blockchain Platforms</h3>
-              <ul className="space-y-3">
-                {["Ethereum", "Polygon", "Solana", "Polkadot", "Celo", "Scroll", "Arbitrum", "Optimism"].map(
-                  (tech, index) => (
-                    <li key={index} className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#00d2ff]" />
-                      <span>{tech}</span>
-                    </li>
-                  ),
-                )}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-medium mb-6 text-purple-500">Smart Contract Languages</h3>
-              <ul className="space-y-3">
-                {["Solidity", "Rust", "Vyper", "Move"].map((tech, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-purple-500" />
-                    <span>{tech}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-medium mb-6 text-[#00d2ff]">Frontend Technologies</h3>
-              <ul className="space-y-3">
-                {["React", "Vue", "Next.js", "TypeScript", "Tailwind CSS", "ThreeJS"].map((tech, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-[#00d2ff]" />
-                    <span>{tech}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-medium mb-6 text-purple-500">Backend & Infrastructure</h3>
-              <ul className="space-y-3">
-                {["Node.js", "Python", "GraphQL", "IPFS", "AWS", "Google Cloud"].map((tech, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-purple-500" />
-                    <span>{tech}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="space-y-12">
+            {technologies.map((techCategory, index) => (
+              <div key={index}>
+                <h3 className={`text-xl font-medium mb-6 ${techCategory.color}`}>
+                  {techCategory.category}
+                </h3>
+                <div className="overflow-hidden">
+                  <div className="flex animate-scroll-right-to-left">
+                    {[...techCategory.items, ...techCategory.items].map((tech, idx) => (
+                      <div
+                        key={`${tech.name}-${idx}`}
+                        className="flex items-center gap-3 bg-[#111111] border border-gray-800 rounded-lg px-4 py-2 mx-2 min-w-[200px]"
+                      >
+                        <Image
+                          src={tech.logo}
+                          alt={`${tech.name} logo`}
+                          width={24}
+                          height={24}
+                          className="object-contain"
+                        />
+                        <span className="text-white">{tech.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -240,11 +270,11 @@ export default function SavannahDevsPage() {
         description="Join our community to explore Web3 opportunities."
         primaryCTA="Start a Project"
         primaryCTALink="/get-started"
-        secondaryCTA="start a conversation"
-        secondaryCTALink="/get-started"
+        secondaryCTA="Start a Conversation"
+        secondaryCTALink="/contact"
       />
 
       <ServiceFooter />
     </div>
-  )
+  );
 }
