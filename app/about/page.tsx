@@ -62,7 +62,7 @@ export default function AboutPage() {
       <ServiceHero
         title="About Web3 Savannah"
         description="We are a passionate team dedicated to revolutionizing Africa’s tech landscape through blockchain innovation and community empowerment."
-        image="/Image_fx (12).jpg"
+        image="/savannah-devs.jpg"
       />
 
       {/* Our Mission */}
