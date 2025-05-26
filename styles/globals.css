@@ -92,3 +92,23 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* app/globals.css */
+@keyframes scroll-right-to-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-right-to-left {
+  display: flex;
+  animation: scroll-right-to-left 20s linear infinite;
+  width: max-content; /* Ensures the container is wide enough for all items */
+}
+
+.animate-scroll-right-to-left:hover {
+  animation-play-state: paused; /* Pause animation on hover */
+}
