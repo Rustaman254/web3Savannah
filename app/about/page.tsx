@@ -206,9 +206,9 @@ export default function AboutPage() {
         title="Join Our Mission"
         description="Partner with us to drive Web3 innovation and impact in Africa."
         primaryCTA="Get Involved"
-        primaryCTALink="/contact"
+        primaryCTALink="/get-started"
         secondaryCTA="Learn More"
-        secondaryCTALink="/services"
+        secondaryCTALink="/about"
       />
 
       <ServiceFooter />
