@@ -106,7 +106,7 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
               <div className="relative w-32 h-10">
-                <Image src="/landscapelogo.png" alt="Web3 Savannah Logo" fill className="object-contain" />
+                <Image src="/landscapelogo.webp" alt="Web3 Savannah Logo" fill className="object-contain" />
               </div>
             </Link>
           </div>
