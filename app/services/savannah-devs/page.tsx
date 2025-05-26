@@ -236,10 +236,12 @@ export default function SavannahDevsPage() {
       </section>
 
       <ServiceCTA
-        title="Ready to Build Your Blockchain Solution?"
-        description="Let our expert developers bring your blockchain vision to life with secure, scalable, and efficient solutions."
-        primaryCTA="Start Your Project"
-        secondaryCTA="Schedule a Consultation"
+        title="Learn More About Us"
+        description="Join our community to explore Web3 opportunities."
+        primaryCTA="Start a Project"
+        primaryCTALink="/get-started"
+        secondaryCTA="start a conversation"
+        secondaryCTALink="/get-started"
       />
 
       <ServiceFooter />
