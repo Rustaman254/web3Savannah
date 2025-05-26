@@ -1,8 +1,8 @@
-// app/events/[slug]/page.js
+// app/events/[slug]/page.tsx
 import { Navbar } from "@/components/navbar";
 import { ServiceFooter } from "@/components/service-footer";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Calendar } from "lucide-react";
+import { ArrowLeft, Calendar, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -122,7 +122,7 @@ const events = [
     details: `
       <p class="mb-6 text-gray-300">This hybrid event showcases how Web3 can address social challenges like financial inclusion and transparency in Africa.</p>
       <h2 class="text-2xl font-semibold mb-4 text-white">Key Topics</h2>
-      <ul class="list-disc list-inside.mb-6 text-gray-300">
+      <ul class="list-disc list-inside mb-6 text-gray-300">
         <li>Blockchain for transparent aid distribution</li>
         <li>NFTs for social good</li>
         <li>Decentralized governance models</li>
@@ -140,7 +140,7 @@ const events = [
     time: "12:00 PM - 8:00 PM",
     location: "Kigali, Rwanda",
     capacity: "Open to public",
-    imageUrl: "/Image_fx (5).jpg",
+    imageUrl: "/Image_fx.png",
     type: "in-person",
     slug: "nft-art-exhibition-2025",
     details: `
@@ -157,13 +157,13 @@ const events = [
   },
 ];
 
-export default async function EventDetailsPage({ params }) {
+export default async function EventDetailsPage({ params }: { params: { slug: string } }) {
   // Find the event by slug
   const event = events.find((event) => event.slug === params.slug);
 
   // Handle case where event is not found
   if (!event) {
-    return notFound();
+    notFound();
   }
 
   const { title, description, date, time, location, capacity, imageUrl, type, details } = event;
@@ -207,7 +207,9 @@ export default async function EventDetailsPage({ params }) {
             <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-6">
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4 text-[#00d2ff]" />
-                <span>{date} • {time}</span>
+                <span>
+                  {date} • {time}
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <svg className="h-4 w-4 text-[#00d2ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -227,20 +229,7 @@ export default async function EventDetailsPage({ params }) {
                 <span>{location}</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="h-4 w-4 text-[#00d2ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 4.354a4 4 0 110 5.292M15 21H3v--motif
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 01-9-9m9 9zm0 0H3m-9 0a9 9 0 009 9m0 0c1.657 0 3-1.343 3-3s-1.343-3-3-3m0 0a3 3 0 013 3m3 0h-6m-3-9v12m0 0l3.5-3.5m0 0l-3.5-3.5"
-                  />
-                </svg>
+                <Users className="h-4 w-4 text-[#00d2ff]" />
                 <span>{capacity}</span>
               </div>
             </div>
@@ -297,7 +286,6 @@ export default async function EventDetailsPage({ params }) {
                           <option value="virtual">Virtual</option>
                         </>
                       )}
-                      {type === "virtual" && <option value="virtual">Virtual</option>}
                     </select>
                   </div>
                 )}
@@ -314,9 +302,7 @@ export default async function EventDetailsPage({ params }) {
             <div className="border-t border-gray-800 pt-8">
               <h3 className="text-xl font-semibold mb-4">Interested in this event?</h3>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  className="bg-[#00d2ff] hover:bg-[#00b8e0] text-black rounded-md px-6 py-2"
-                >
+                <Button className="bg-[#00d2ff] hover:bg-[#00b8e0] text-black rounded-md px-6 py-2">
                   Share Event
                 </Button>
                 <Button
@@ -341,21 +327,13 @@ export default async function EventDetailsPage({ params }) {
             and opportunities.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button
-              className="bg-[#00d2ff] hover:bg-[#00b8e0] text-black rounded-md px-6 py-2"
-            >
+            <Button className="bg-[#00d2ff] hover:bg-[#00b8e0] text-black rounded-md px-6 py-2">
               Join Discord
             </Button>
-            <Button
-              variant="outline"
-              className="border-gray-700 text-white hover:bg-gray-800"
-            >
+            <Button variant="outline" className="border-gray-700 text-white hover:bg-gray-800">
               Follow on Twitter
             </Button>
-            <Button
-              variant="outline"
-              className="border-gray-700 text-white hover:bg-gray-800"
-            >
+            <Button variant="outline" className="border-gray-700 text-white hover:bg-gray-800">
               Subscribe to Newsletter
             </Button>
           </div>
@@ -367,7 +345,6 @@ export default async function EventDetailsPage({ params }) {
   );
 }
 
-// Generate static params for SSG
 export async function generateStaticParams() {
   return events.map((event) => ({
     slug: event.slug,
