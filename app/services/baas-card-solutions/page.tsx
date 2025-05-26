@@ -1,13 +1,69 @@
-import Image from "next/image"
-import { Navbar } from "@/components/navbar"
-import { ServiceCTA } from "@/components/service-cta"
-import { ServiceFooter } from "@/components/service-footer"
-import { CreditCard } from "@/components/credit-card"
-import { CardThemeSelector } from "@/components/card-theme-selector"
-import { PricingCard } from "@/components/pricing-card"
-import { ProcessStep } from "@/components/process-step"
-import { Button } from "@/components/ui/button"
-import { CheckCircle, CreditCardIcon, Database, Lock, Shield, Smartphone, BarChart } from "lucide-react"
+import Image from "next/image";
+import { Navbar } from "@/components/navbar";
+import { ServiceCTA } from "@/components/service-cta";
+import { ServiceFooter } from "@/components/service-footer";
+import { CreditCard } from "@/components/credit-card";
+import { PricingCard } from "@/components/pricing-card";
+import { ProcessStep } from "@/components/process-step";
+import { Button } from "@/components/ui/button";
+import { CheckCircle, CreditCardIcon, Database, Lock, Shield, Smartphone, BarChart } from "lucide-react";
+
+// New component for premium theme selection
+function PremiumCardThemeSelector() {
+  const themes = [
+    {
+      name: "Bronze",
+      color: "#cd7f32",
+      description: "A warm, rustic metallic finish for a timeless appeal.",
+      gradient: "from-[#cd7f32] to-[#a16207]",
+    },
+    {
+      name: "Silver",
+      color: "#c0c0c0",
+      description: "Sleek and modern, perfect for a professional look.",
+      gradient: "from-[#c0c0c0] to-[#a3a3a3]",
+    },
+    {
+      name: "Gold",
+      color: "#ffd700",
+      description: "Luxurious and bold, designed to stand out.",
+      gradient: "from-[#ffd700] to-[#d4af37]",
+    },
+    {
+      name: "Platinum",
+      color: "#e5e4e2",
+      description: "Elegant and understated, for premium exclusivity.",
+      gradient: "from-[#e5e4e2] to-[#b0b0b0]",
+    },
+    {
+      name: "Obsidian",
+      color: "#1c2526",
+      description: "Glossy dark finish with a sophisticated edge.",
+      gradient: "from-[#1c2526] to-[#3b444b]",
+    },
+  ];
+
+  return (
+    <div className="space-y-4">
+      <h3 className="text-xl font-medium text-white">Select a Premium Theme</h3>
+      <div className="grid grid-cols-2 gap-4">
+        {themes.map((theme) => (
+          <div
+            key={theme.name}
+            className="relative p-4 rounded-lg border border-gray-800 bg-[#111111] hover:border-[#00d2ff] transition-colors cursor-pointer"
+          >
+            <div
+              className={`h-24 rounded-md mb-4 bg-gradient-to-r ${theme.gradient}`}
+              style={{ boxShadow: `0 0 10px ${theme.color}40` }}
+            ></div>
+            <h4 className="text-lg font-semibold text-white">{theme.name}</h4>
+            <p className="text-sm text-gray-400">{theme.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function BaasCardSolutionsPage() {
   return (
@@ -102,16 +158,16 @@ export default function BaasCardSolutionsPage() {
         <div className="container mx-auto">
           <div className="flex items-center gap-2 mb-4">
             <div className="h-1 w-6 bg-gray-700 rounded-full"></div>
-            <span className="text-xs text-gray-400 uppercase">Card Customization</span>
+            <span className="text-xs text-gray-400 uppercase">Premium Card Themes</span>
           </div>
-          <h2 className="text-3xl font-bold mb-6">Design Cards That Reflect Your Brand</h2>
+          <h2 className="text-3xl font-bold mb-6">Craft Luxurious Cards with Premium Metallic Themes</h2>
           <p className="text-gray-400 mb-8 max-w-3xl">
-            Choose from multiple themes or create a completely custom design. Our cards are fully customizable to match
-            your brand identity and appeal to your users.
+            Elevate your brand with our exclusive Bronze, Silver, Gold, Platinum, and Obsidian themes. Each design is
+            crafted to exude luxury and sophistication, ensuring your cards resonate with your audience.
           </p>
 
           <div className="grid md:grid-cols-2 gap-12">
-            <CardThemeSelector />
+            <PremiumCardThemeSelector />
 
             <div className="space-y-8">
               <div className="bg-white dark:bg-[#111111] p-6 rounded-xl border border-gray-200 dark:border-gray-800">
@@ -132,7 +188,7 @@ export default function BaasCardSolutionsPage() {
                     <CheckCircle className="h-5 w-5 text-[#00d2ff] mt-0.5" />
                     <div>
                       <p className="text-gray-700 dark:text-gray-300 text-sm">
-                        Choose from multiple themes or create a custom color palette
+                        Choose from premium metallic themes or create a custom color palette
                       </p>
                     </div>
                   </li>
@@ -350,5 +406,5 @@ export default function BaasCardSolutionsPage() {
 
       <ServiceFooter />
     </div>
-  )
+  );
 }
