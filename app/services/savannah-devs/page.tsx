@@ -14,7 +14,7 @@ export default function SavannahDevsPage() {
       <ServiceHero
         title="Expert Blockchain Development Services"
         description="Skilled and certified blockchain developers building secure, scalable solutions tailored to your needs, from MVPs to enterprise-grade applications."
-        image="/placeholder.svg?height=1080&width=1920"
+        image="/savannah-devs.jpg"
       />
 
       {/* Service Options */}
