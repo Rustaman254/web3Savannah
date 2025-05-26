@@ -190,7 +190,7 @@ export default function AboutPage() {
               <div className="relative h-64 md:h-auto">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] to-transparent z-10 md:hidden"></div>
                 <Image
-                  src="/impact-image.jpg"
+                  src="/accountant-calculating-profit-with-financial-analysis-graphs.jpg"
                   alt="Financial Inclusion Impact"
                   width={600}
                   height={400}
