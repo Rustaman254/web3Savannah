@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useState } from "react"; // Added for theme selection state
 import { Navbar } from "@/components/navbar";
 import { ServiceCTA } from "@/components/service-cta";
 import { ServiceFooter } from "@/components/service-footer";
@@ -8,72 +7,76 @@ import { PricingCard } from "@/components/pricing-card";
 import { ProcessStep } from "@/components/process-step";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, CreditCardIcon, Database, Lock, Shield, Smartphone, BarChart } from "lucide-react";
+import { useState } from "react";
 
-// Updated CardThemeSelector component
-function CardThemeSelector({ onSelectTheme, selectedTheme }) {
+// Component for premium theme selection with dynamic card preview
+function PremiumCardThemeSelector() {
   const themes = [
     {
       name: "Bronze",
       color: "#cd7f32",
+      description: "A warm, rustic metallic finish for a timeless appeal.",
       gradient: "from-[#cd7f32] to-[#a16207]",
     },
     {
       name: "Silver",
       color: "#c0c0c0",
+      description: "Sleek and modern, perfect for a professional look.",
       gradient: "from-[#c0c0c0] to-[#a3a3a3]",
     },
     {
       name: "Gold",
       color: "#ffd700",
+      description: "Luxurious and bold, designed to stand out.",
       gradient: "from-[#ffd700] to-[#d4af37]",
     },
     {
       name: "Platinum",
       color: "#e5e4e2",
+      description: "Elegant and understated, for premium exclusivity.",
       gradient: "from-[#e5e4e2] to-[#b0b0b0]",
     },
     {
       name: "Obsidian",
       color: "#1c2526",
+      description: "Glossy dark finish with a sophisticated edge.",
       gradient: "from-[#1c2526] to-[#3b444b]",
     },
   ];
 
+  const [selectedTheme, setSelectedTheme] = useState(themes[0]);
+
   return (
-    <div className="space-y-4">
-      <h3 className="text-lg font-medium text-white">Select a Premium Theme</h3>
-      <div className="grid grid-cols-2 gap-3">
+    <div className="space-y-6">
+      <h3 className="text-xl font-medium text-white">Select a Premium Theme</h3>
+      {/* Card Preview */}
+      <div className="relative h-48 w-full max-w-sm mx-auto rounded-lg overflow-hidden border border-gray-800 bg-gradient-to-r" style={{ backgroundImage: `linear-gradient(to right, ${selectedTheme.gradient.split('from-')[1].split(' to-')[0]}, ${selectedTheme.gradient.split('to-')[1]})`, boxShadow: `0 0 10px ${selectedTheme.color}40` }}>
+        <CreditCard className={`h-full w-full bg-gradient-to-r ${selectedTheme.gradient}`} />
+      </div>
+      {/* Theme Selector */}
+      <div className="grid grid-cols-3 gap-3">
         {themes.map((theme) => (
           <div
             key={theme.name}
-            className={`p-3 rounded-md border ${
+            className={`relative p-3 rounded-lg border ${
               selectedTheme.name === theme.name ? "border-[#00d2ff]" : "border-gray-800"
             } bg-[#111111] hover:border-[#00d2ff] transition-colors cursor-pointer`}
-            onClick={() => onSelectTheme(theme)}
+            onClick={() => setSelectedTheme(theme)}
           >
             <div
-              className={`h-12 rounded-sm mb-2 bg-gradient-to-r ${theme.gradient}`}
+              className={`h-12 rounded-md mb-2 bg-gradient-to-r ${theme.gradient}`}
               style={{ boxShadow: `0 0 8px ${theme.color}40` }}
             ></div>
             <h4 className="text-sm font-semibold text-white">{theme.name}</h4>
+            <p className="text-xs text-gray-400 line-clamp-2">{theme.description}</p>
           </div>
         ))}
-      </div>
-      <div className="mt-4">
-        <h4 className="text-lg font-medium text-white mb-2">Selected Theme: {selectedTheme.name}</h4>
-        <CreditCard theme={selectedTheme} />
       </div>
     </div>
   );
 }
 
 export default function BaasCardSolutionsPage() {
-  const [selectedTheme, setSelectedTheme] = useState({
-    name: "Bronze",
-    color: "#cd7f32",
-    gradient: "from-[#cd7f32] to-[#a16207]",
-  });
-
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
       <Navbar />
@@ -98,7 +101,7 @@ export default function BaasCardSolutionsPage() {
               </Button>
             </div>
             <div className="flex justify-center">
-              <CreditCard theme={selectedTheme} />
+              <CreditCard />
             </div>
           </div>
         </div>
@@ -175,7 +178,7 @@ export default function BaasCardSolutionsPage() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-12">
-            <CardThemeSelector onSelectTheme={setSelectedTheme} selectedTheme={selectedTheme} />
+            <PremiumCardThemeSelector />
 
             <div className="space-y-8">
               <div className="bg-white dark:bg-[#111111] p-6 rounded-xl border border-gray-200 dark:border-gray-800">
@@ -220,7 +223,7 @@ export default function BaasCardSolutionsPage() {
               </div>
 
               <div className="bg-white dark:bg-[#111111] p-6 rounded-xl border border-gray-200 dark:border-gray-800">
-                <h3 className="text-xl font-medium mb-3 text-gray-900 dark:text-white">Digital Wallet Integration</h3>
+                <h3 className="text-xl font-medium mb-4 text-gray-900 dark:text-white">Digital Wallet Integration</h3>
                 <div className="flex items-center gap-6 mb-6">
                   <Smartphone className="h-10 w-10 text-[#00d2ff]" />
                   <div>
@@ -295,7 +298,7 @@ export default function BaasCardSolutionsPage() {
                 </div>
               </div>
 
-              <div className="relative h-24 rounded-lg overflow-hidden mt-8">
+              <div className="relative h-48 rounded-lg overflow-hidden mt-8">
                 <Image src="/card-usage.png" alt="Card usage analytics" fill className="object-cover" />
               </div>
             </div>
