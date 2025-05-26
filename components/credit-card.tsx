@@ -30,23 +30,23 @@ export function CreditCard({
   // Theme styles
   const themeStyles = {
     default: {
-      background: "bg-gradient-to-br from-[#00d2ff] via-purple-500 to-[#00d2ff]",
-      textColor: "text-black",
+      background: "bg-gradient-to-br from-[#cd7f32] via-[#b87333] to-[#cd7f32]", // Bronze
+      textColor: "text-white",
     },
     ocean: {
-      background: "bg-gradient-to-br from-blue-400 via-teal-500 to-blue-600",
-      textColor: "text-white",
+      background: "bg-gradient-to-br from-[#c0c0c0] via-[#a7a7a7] to-[#c0c0c0]", // Silver
+      textColor: "text-black",
     },
     sunset: {
-      background: "bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600",
-      textColor: "text-white",
+      background: "bg-gradient-to-br from-[#ffd700] via-[#e6b800] to-[#ffd700]", // Gold
+      textColor: "text-black",
     },
     neon: {
-      background: "bg-gradient-to-br from-green-400 via-yellow-300 to-pink-500",
+      background: "bg-gradient-to-br from-[#e5e4e2] via-[#d8d8d6] to-[#e5e4e2]", // Platinum
       textColor: "text-black",
     },
     midnight: {
-      background: "bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900",
+      background: "bg-gradient-to-br from-[#1c2526] via-[#2f3d44] to-[#1c2526]", // Obsidian
       textColor: "text-white",
     },
   }
