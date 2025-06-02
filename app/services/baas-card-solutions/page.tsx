@@ -167,7 +167,7 @@ export default function BaasCardSolutionsPage() {
                   </div>
                 </div>
                 <div className="relative h-48 w-full rounded-lg overflow-hidden">
-                  <Image src="/mobile-wallet.png" alt="Mobile wallet with card" fill className="object-cover" />
+                  <Image src="/Top-5-Mobile-Wallets-to-Store-Gift-Cards-Securely.jpg" alt="Mobile wallet with card" fill className="object-cover" />
                 </div>
               </div>
             </div>
