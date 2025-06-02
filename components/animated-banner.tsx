@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useEffect, useRef, useState } from "react"
 import { useTheme } from "@/components/theme-provider"
 import Image from "next/image"
@@ -12,14 +11,13 @@ interface AnimatedBannerProps {
   children?: React.ReactNode
 }
 
-interface Circle {
+interface Star {
   x: number
   y: number
   radius: number
-  color: string
-  vx: number
-  vy: number
   opacity: number
+  twinkleSpeed: number
+  baseOpacity: number
   originalX: number
   originalY: number
 }
@@ -28,7 +26,7 @@ export function AnimatedBanner({ title, subtitle, children }: AnimatedBannerProp
   const { theme } = useTheme()
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const animationFrameRef = useRef<number>(0)
-  const circlesRef = useRef<Circle[]>([])
+  const starsRef = useRef<Star[]>([])
   const [mousePosition, setMousePosition] = useState<{ x: number; y: number } | null>(null)
 
   useEffect(() => {
@@ -42,49 +40,32 @@ export function AnimatedBanner({ title, subtitle, children }: AnimatedBannerProp
     const resizeCanvas = () => {
       canvas.width = window.innerWidth
       canvas.height = Math.max(600, window.innerHeight * 0.7)
-      initCircles()
+      initStars()
     }
 
-    // Brand colors with variations
-    const brandColors = [
-      // Purple variations
-      "rgba(138, 58, 185, 0.6)",
-      "rgba(103, 65, 217, 0.6)",
-      "rgba(156, 39, 176, 0.6)",
-      "rgba(123, 31, 162, 0.6)",
-      "rgba(170, 71, 188, 0.6)",
-      // Cyan/Teal variations
-      "rgba(0, 210, 255, 0.6)",
-      "rgba(0, 184, 224, 0.6)",
-      "rgba(0, 229, 255, 0.6)",
-      "rgba(0, 188, 212, 0.6)",
-      "rgba(3, 169, 244, 0.6)",
-    ]
+    // Initialize stars
+    const initStars = () => {
+      const stars: Star[] = []
+      const numStars = Math.floor((canvas.width * canvas.height) / 10000) // Dense star field
 
-    // Initialize circles
-    const initCircles = () => {
-      const circles: Circle[] = []
-      const numCircles = Math.floor((canvas.width * canvas.height) / 25000) // More circles
-
-      for (let i = 0; i < numCircles; i++) {
-        const radius = Math.random() * 80 + 30 // Varying sizes
+      for (let i = 0; i < numStars; i++) {
+        const radius = Math.random() * 2 + 0.5 // Small stars
         const x = Math.random() * canvas.width
         const y = Math.random() * canvas.height
 
-        circles.push({
+        stars.push({
           x,
           y,
           radius,
-          color: brandColors[Math.floor(Math.random() * brandColors.length)],
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          opacity: Math.random() * 0.5 + 0.1,
+          opacity: Math.random() * 0.5 + 0.3,
+          twinkleSpeed: Math.random() * 0.02 + 0.01,
+          baseOpacity: Math.random() * 0.5 + 0.3,
           originalX: x,
           originalY: y,
         })
       }
 
-      circlesRef.current = circles
+      starsRef.current = stars
     }
 
     // Handle mouse movement
@@ -108,45 +89,44 @@ export function AnimatedBanner({ title, subtitle, children }: AnimatedBannerProp
       ctx.fillStyle = theme === "dark" ? "#0a0a0a" : "#ffffff"
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-      // Draw and update circles
-      circlesRef.current.forEach((circle) => {
-        // Update position based on velocity
-        circle.x += circle.vx
-        circle.y += circle.vy
+      // Draw and update stars
+      starsRef.current.forEach((star) => {
+        // Twinkle effect
+        star.opacity = star.baseOpacity + Math.sin(Date.now() * star.twinkleSpeed) * 0.2
 
-        // React to mouse position if available
+        // React to mouse position
         if (mousePosition) {
-          const dx = mousePosition.x - circle.x
-          const dy = mousePosition.y - circle.y
+          const dx = mousePosition.x - star.x
+          const dy = mousePosition.y - star.y
           const distance = Math.sqrt(dx * dx + dy * dy)
-          const maxDistance = 300 // Maximum influence distance
+          const maxDistance = 200 // Influence radius
 
           if (distance < maxDistance) {
-            // Calculate repulsion force (stronger when closer)
-            const force = (1 - distance / maxDistance) * 2
-            circle.x -= dx * force * 0.02
-            circle.y -= dy * force * 0.02
+            // Brighten and slightly shift stars near mouse
+            star.opacity = Math.min(star.opacity + (1 - distance / maxDistance) * 0.5, 1)
+            star.x += dx * 0.01
+            star.y += dy * 0.01
           } else {
-            // Gradually return to original path when not influenced
-            circle.x += (circle.originalX - circle.x) * 0.01
-            circle.y += (circle.originalY - circle.y) * 0.01
+            // Return to original position
+            star.x += (star.originalX - star.x) * 0.05
+            star.y += (star.originalY - star.y) * 0.05
           }
         } else {
-          // Gradually return to original path when mouse leaves
-          circle.x += (circle.originalX - circle.x) * 0.01
-          circle.y += (circle.originalY - circle.y) * 0.01
+          // Return to original position
+          star.x += (star.originalX - star.x) * 0.05
+          star.y += (star.originalY - star.y) * 0.05
         }
 
-        // Bounce off edges
-        if (circle.x < -circle.radius) circle.x = canvas.width + circle.radius
-        if (circle.x > canvas.width + circle.radius) circle.x = -circle.radius
-        if (circle.y < -circle.radius) circle.y = canvas.height + circle.radius
-        if (circle.y > canvas.height + circle.radius) circle.y = -circle.radius
+        // Keep stars within canvas
+        if (star.x < 0) star.x = canvas.width
+        if (star.x > canvas.width) star.x = 0
+        if (star.y < 0) star.y = canvas.height
+        if (star.y > canvas.height) star.y = 0
 
-        // Draw circle
+        // Draw star
         ctx.beginPath()
-        ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2)
-        ctx.fillStyle = circle.color
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2)
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`
         ctx.fill()
       })
 
