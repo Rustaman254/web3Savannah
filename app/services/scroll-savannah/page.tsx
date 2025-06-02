@@ -271,7 +271,7 @@ export default function ScrollSavannahPage() {
               </div>
               <div className="relative h-48 md:h-64">
                 <Image
-                  src="/placeholder.svg?height=400&width=400"
+                  src="/0f0984e7b4aab9e5f231c97bfc70bd630ab81ef2.jpg"
                   alt="Workshop session"
                   fill
                   className="object-cover rounded-lg"
@@ -279,7 +279,7 @@ export default function ScrollSavannahPage() {
               </div>
               <div className="relative h-48 md:h-64 col-span-2">
                 <Image
-                  src="/placeholder.svg?height=400&width=800"
+                  src="/5603fbb093b358c11a29bae8743a040f67754c8b.jpg"
                   alt="Hackathon participants"
                   fill
                   className="object-cover rounded-lg"
