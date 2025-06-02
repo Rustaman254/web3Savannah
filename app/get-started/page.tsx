@@ -15,7 +15,7 @@ interface FormData {
   privacyPolicy: boolean;
 }
 
-export default const GetStartedPage: React.FC = () => {
+const GetStartedPage: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
     lastName: '',
@@ -580,3 +580,5 @@ export default const GetStartedPage: React.FC = () => {
     </div>
   )
 }
+      
+export default GetStartedPage;
