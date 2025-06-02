@@ -202,11 +202,11 @@ export function Navbar() {
       {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-white dark:bg-black pt-16 pb-6 px-4 md:hidden overflow-y-auto">
-          <div className="flex items-center gap-2 mb-8">
+{/*           <div className="flex items-center gap-2 mb-8">
             <div className="relative w-32 h-10">
               <Image src="/landscapelogo.png" alt="Web3 Savannah Logo" fill className="object-contain" />
             </div>
-          </div>
+          </div> */}
           <nav className="flex flex-col space-y-6 mt-8">
             <Link
               href="/"
@@ -252,17 +252,17 @@ export function Navbar() {
             >
               About
             </Link>
-            <div className="flex items-center gap-4">
+{/*             <div className="flex items-center gap-4">
               <ThemeToggle />
               <span className="text-gray-500 dark:text-gray-400">Toggle theme</span>
-            </div>
-            <Button
+            </div> */}
+{/*             <Button
               asChild
               className="bg-[#00d2ff] hover:bg-[#00b8e0] text-black rounded-md text-lg w-full py-3 mt-4"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <Link href="/get-started">Contact Us</Link>
-            </Button>
+            </Button> */}
           </nav>
         </div>
       )}
