@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Calendar, Clock, MapPin, Users } from "lucide-react"
@@ -7,11 +8,15 @@ import { Navbar } from "@/components/navbar"
 import { AnimatedBanner } from "@/components/animated-banner"
 import { ServiceFooter } from "@/components/service-footer"
 
-export default function LandingPage() {
+interface LandingPageProps {
+  isLoading: boolean;
+}
+
+export default function LandingPage({ isLoading }: LandingPageProps) {
   return (
     <div className="min-h-screen bg-background text-foreground z-40">
         {/* Navbar */}
-        <Navbar />
+        <Navbar isLoading={isLoading} />
 
         {/* Animated Banner */}
         <AnimatedBanner
@@ -119,7 +124,7 @@ export default function LandingPage() {
               </Link>
 
               {/* Scroll Savannah */}
-              <Link href="/services/scroll-savannah" className="group">
+              {/* <Link href="/services/scroll-savannah" className="group">
                 <div className="bg-white dark:bg-[#111111] p-8 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-[#00d2ff] transition-colors h-full">
                   <div className="mb-4 text-purple-500">
                     <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -145,7 +150,7 @@ export default function LandingPage() {
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
-              </Link>
+              </Link> */}
 
               {/* Advisory Services */}
               <Link href="/services/advisory" className="group">

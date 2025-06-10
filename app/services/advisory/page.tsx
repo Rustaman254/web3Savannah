@@ -96,24 +96,24 @@ export default function AdvisoryPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <TeamMember
-              name="Dr. Amara Okafor"
+              name="Kimutai"
               role="Blockchain Economics Lead"
-              bio="Former Central Bank economist specializing in monetary policy and token economics. PhD in Economics from LSE."
-              imageUrl="/placeholder.svg?height=400&width=400"
+              bio="Visionary leader, strategist, and co-founder, Kimutai oversees all aspects of the company’s growth, partnerships, and direction"
+              imageUrl="/team/Kimutai.jpg"
             />
 
             <TeamMember
-              name="Malik Johnson"
+              name="Uche"
               role="Technical Strategy Director"
-              bio="Ex-Ethereum Foundation researcher with expertise in protocol design and consensus mechanisms. 10+ years in distributed systems."
-              imageUrl="/placeholder.svg?height=400&width=400"
+              bio="Uche leads the engineering and technology teams, ensuring delivery and innovation in product development."
+              imageUrl="/team/Uchenna Igwe.jpg"
             />
 
             <TeamMember
-              name="Sofia Chen"
-              role="Regulatory Affairs Advisor"
-              bio="International fintech compliance expert. Previously led regulatory strategy for major exchanges across 15 jurisdictions."
-              imageUrl="/placeholder.svg?height=400&width=400"
+              name="Obed"
+              role="Techn Lead"
+              bio="Obed manages technical execution, system architecture, and drives the team to deliver high-quality solutions."
+              imageUrl="/team/Obed.jpg"
             />
           </div>
         </div>

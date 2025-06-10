@@ -35,10 +35,12 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     <AnimatePresence onExitComplete={handleExitComplete}>
       {!isExiting && (
         <motion.div
-          className="fixed inset-0 flex flex-col items-center justify-center bg-gray-900 z-50"
+          className="fixed inset-0 flex flex-col items-center justify-center bg-gray-900"
+          style={{ zIndex: 50 }} // Initial z-index
           exit={{
             opacity: 0,
             scale: 1.1,
+            zIndex: 12, // Set z-index to 12 on exit
           }}
           transition={{
             duration: 1,

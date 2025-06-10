@@ -8,6 +8,10 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 
+interface LandingPageProps {
+  isLoading: boolean;
+}
+
 const services = [
   {
     title: "Savannah Devs",
@@ -20,17 +24,17 @@ const services = [
       </svg>
     ),
   },
-  {
-    title: "Scroll Savannah",
-    description: "Building the future of Ethereum scalability in Africa.",
-    href: "/services/scroll-savannah",
-    icon: (
-      <svg className="w-8 h-8 text-purple-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="12" fill="currentColor" fillOpacity="0.1" />
-        <path d="M7 14L12 9L17 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
+  // {
+  //   title: "Scroll Savannah",
+  //   description: "Building the future of Ethereum scalability in Africa.",
+  //   href: "/services/scroll-savannah",
+  //   icon: (
+  //     <svg className="w-8 h-8 text-purple-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  //       <circle cx="12" cy="12" r="12" fill="currentColor" fillOpacity="0.1" />
+  //       <path d="M7 14L12 9L17 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  //     </svg>
+  //   ),
+  // },
   {
     title: "Advisory",
     description: "Strategic consulting on tokenomics, technical architecture, and market fit.",
@@ -56,11 +60,17 @@ const services = [
   },
 ];
 
-export function Navbar() {
+export function Navbar({ isLoading }: LandingPageProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
+
+  const [nav, setNav] = useState(false)
+
+  const handleLoadingComplete = () => {
+    setNav(true)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -96,7 +106,8 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
+          `fixed top-0 left-0 right-0 transition-all duration-300`,
+          !isLoading ? "z-30" : "z-50",
           isScrolled
             ? "mx-4 mt-4 bg-white/90 dark:bg-[#0a0a0a]/90 backdrop-blur-md py-2 rounded-full border border-gray-200 dark:border-gray-800 shadow-lg"
             : "bg-transparent py-4",

@@ -1,26 +1,20 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Calendar, Clock, MapPin, Users } from "lucide-react"
-import { Navbar } from "@/components/navbar"
-import { AnimatedBanner } from "@/components/animated-banner"
-import { ServiceFooter } from "@/components/service-footer"
-import LoadingScreen from "@/components/loading-screen"
-import LandingPage from "@/components/loading-page"
+import { useState } from "react";
+import LoadingScreen from "@/components/loading-screen";
+import LandingPage from "@/components/loading-page"; // Assuming this is the file for LandingPage
 
 export default function Home() {
-  const [showLanding, setShowLanding] = useState(false)
+  const [showLanding, setShowLanding] = useState(false);
 
   const handleLoadingComplete = () => {
-    setShowLanding(true)
-  }
+    setShowLanding(true);
+  };
+
   return (
     <>
       {!showLanding && <LoadingScreen onComplete={handleLoadingComplete} />}
-      <LandingPage/>
+      <LandingPage isLoading={!showLanding} />
     </>
-
-  )
+  );
 }

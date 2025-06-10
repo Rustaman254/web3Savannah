@@ -10,28 +10,34 @@ import { Users, Globe, Target } from "lucide-react";
 // Sample team data (replace with actual team member data)
 const teamMembers = [
   {
-    name: "Jane Doe",
-    role: "Founder & CEO",
-    image: "/team/jane-doe.jpg",
-    bio: "Blockchain visionary with 10+ years in tech, leading Web3 initiatives across Africa.",
+    name: "Kimutai",
+    role: "Co-Founder & CEO",
+    image: "/team/Kimutai.jpg",
+    bio: "Visionary leader, strategist, and co-founder, Kimutai oversees all aspects of the company’s growth, partnerships, and direction.",
   },
   {
-    name: "John Smith",
-    role: "Lead Developer",
-    image: "/team/john-smith.jpg",
-    bio: "Expert in Solidity and Rust, building secure and scalable smart contracts.",
+    name: "Sianoi",
+    role: "Co-founder",
+    image: "/team/Sianoi.jpg",
+    bio: "Sianoi is responsible for operations, business development, and building the foundation of Web3 Savannah’s success.",
   },
   {
-    name: "Aisha Khan",
-    role: "Product Manager",
-    image: "/team/aisha-khan.jpg",
-    bio: "Drives product innovation with a focus on user-centric blockchain solutions.",
+    name: "Uche",
+    role: "Interim CTO",
+    image: "/team/Uchenna Igwe.jpg",
+    bio: "Uche leads the engineering and technology teams, ensuring delivery and innovation in product development.",
   },
   {
-    name: "Michael Okoro",
-    role: "Community Lead",
-    image: "/team/michael-okoro.jpg",
-    bio: "Fosters Web3 adoption through community engagement and education.",
+    name: "Norman",
+    role: "Compliance Lead",
+    image: "/team/Norman.jpg",
+    bio: "Norman oversees compliance, risk, and regulatory frameworks, ensuring all business activities meet the highest standards.",
+  },
+  {
+    name: "Obed",
+    role: "Tech Lead",
+    image: "/team/Obed.jpg",
+    bio: "Obed manages technical execution, system architecture, and drives the team to deliver high-quality solutions.",
   },
 ];
 
